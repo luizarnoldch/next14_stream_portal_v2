@@ -3,7 +3,11 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-import AmplifyContext from "@/context/AmplifyContext";
+import dynamic from 'next/dynamic';
+
+const AmplifyTheme = dynamic(() => import('@/context/AmplifyTheme'), {
+  ssr: false,
+});
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -28,7 +32,9 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <AmplifyContext>{children}</AmplifyContext>
+        <AmplifyTheme>
+          {children}
+        </AmplifyTheme>
       </body>
     </html>
   );
