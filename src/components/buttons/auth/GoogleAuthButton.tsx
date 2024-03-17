@@ -18,7 +18,7 @@ const GoogleAuthButton = (props: Props) => {
 
   return (
     <Button
-      className="dark:border dark:border-white border border-black rounded-full w-full flex gap-4 h-12 py-2 bg-transparent dark:text-white dark:hover:text-black dark:active:bg-white/60 text-black"
+      className="dark:border dark:border-white border border-black rounded-full w-full flex gap-4 h-12 py-2 bg-transparent dark:text-white dark:hover:text-black dark:active:bg-white/60 text-black hover:bg-slate-200"
       onClick={handleSignWithGoogle}
     >
       <Image src="/google.png" alt="google-icon" height={30} width={30} />

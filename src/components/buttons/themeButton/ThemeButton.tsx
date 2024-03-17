@@ -13,7 +13,7 @@ const ThemeButton = () => {
   };
 
   return (
-    <Button variant="outline" size="icon" onClick={toggleTheme}>
+    <Button variant="outline" size="icon" onClick={toggleTheme} className="dark:border dark:border-white/50 rounded-md">
         <Sun className="h-[1.2rem] w-[1.2rem] transition-all hidden dark:block" />
         <Moon className="absolute h-[1.2rem] w-[1.2rem] transition-all  dark:hidden block" />
         <span className="sr-only">Toggle theme</span>
