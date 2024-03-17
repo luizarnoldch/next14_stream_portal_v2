@@ -3,8 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 import { runWithAmplifyServerContext } from "@/lib/amplifyServer";
 import { cookies } from "next/headers";
 
-export const dynamic = "force-dynamic";
-
 export async function middleware(request: NextRequest) {
   const response = NextResponse.next();
   const { pathname } = request.nextUrl;
@@ -24,22 +22,19 @@ export async function middleware(request: NextRequest) {
 
   const cookieStore = cookies();
   const allCookies = cookieStore.getAll();
-
   let tokenCookie = "";
-
-  allCookies.forEach(({ name, value }) => {
-    let parts = name.split(".");
-    let type = parts[parts.length - 1];
-    if (type === "idToken") {
+  for (const { name, value } of allCookies) {
+    if (name.endsWith('.idToken')) {
       tokenCookie = value;
+      break;
     }
-  });
+  }
 
   if (
     authenticated &&
     (pathname.startsWith("/sign-in") || pathname.startsWith("/sign-up"))
   ) {
-    return NextResponse.redirect(new URL("/portal", request.url));
+    return NextResponse.redirect(new URL("/portal/admin", request.url));
   }
 
   if (!authenticated && pathname.startsWith("/portal")) {
