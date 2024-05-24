@@ -13,7 +13,7 @@ const SignInFooter = (props: Props) => {
             <Separator className="mb-6 dark:bg-primary  "/>
             <GoogleButton />
             <div className="flex gap-2 justify-center items-center mt-6 text-sm">
-                <span>Don't have an account?</span>
+                <span>Don&lsquo;t have an account?</span>
                 <Link href={"/sign-up"} className="font-bold">
                     Sing up
                 </Link>
