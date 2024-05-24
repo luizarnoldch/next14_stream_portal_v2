@@ -4,11 +4,9 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetDescription,
-  SheetClose,
 } from '@/components/ui/sheet';
 import { Button } from '@/components/ui/button';
 import CompanyIcon from "@/icons/Company"
@@ -18,26 +16,30 @@ import Burger from '@/icons/Burger';
 import Logout from '@/icons/Logout';
 import AvatarPortal from './AvatarPortal';
 import NotificationPortal from './NotificationPortal';
+import Link from 'next/link';
+
+import { Home, User, Users, Film } from 'lucide-react';
 
 type LinkType = {
   href: string
   pathname: string
+  icon?: React.ReactNode
 }
 
 const links: LinkType[] = [
-  { href: '/portal', pathname: 'Home' },
-  { href: '/portal/profile', pathname: 'Profile' },
-  { href: '/portal/workers', pathname: 'Workers' },
-  { href: '/portal/accounts', pathname: 'Accounts' },
+  { href: '/portal', pathname: 'Home', icon: <Home /> },
+  { href: '/portal/profile', pathname: 'Profile', icon: <User /> },
+  { href: '/portal/workers', pathname: 'Workers', icon: <Users /> },
+  { href: '/portal/accounts', pathname: 'Accounts', icon: <Film /> },
 ];
 
 type MobileLandingNavbarProps = {
   className?: string
 }
 
-const MobileLandingNavbar = ({ className }: MobileLandingNavbarProps) => {
+const MobilePortalNavbar = ({ className }: MobileLandingNavbarProps) => {
   return (
-    <nav className={cn("h-12 flex justify-center items-center bg-primary-foreground", className)}>
+    <nav className={cn("h-16 flex justify-center items-center bg-primary-foreground", className)}>
       <div className='max-w-3xl w-full flex justify-between items-center px-6'>
         <Sheet>
           <SheetTrigger asChild>
@@ -54,10 +56,10 @@ const MobileLandingNavbar = ({ className }: MobileLandingNavbarProps) => {
 
           <SheetContent side={"left"}>
             <SheetHeader className='mt-10'>
-              <div className='absolute left-4 top-4 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-zinc-100 dark:ring-offset-zinc-950 dark:focus:ring-zinc-300 dark:data-[state=open]:bg-zinc-800 flex gap-2 hover:cursor-pointer p-1'>
+              <Link href={"/"} className='absolute left-4 top-4 rounded-sm opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-zinc-100 dark:ring-offset-zinc-950 dark:focus:ring-zinc-300 dark:data-[state=open]:bg-zinc-800 flex gap-2 hover:cursor-pointer p-1'>
                 <Logout />
                 <span>Log out</span>
-              </div>
+              </Link>
               <SheetTitle className='justify-center flex items-center gap-2'>
                 <CompanyIcon className='size-8' />
                 <span>Menu</span>
@@ -69,46 +71,20 @@ const MobileLandingNavbar = ({ className }: MobileLandingNavbarProps) => {
             <ul className='mt-4 flex flex-col gap-4'>
               {
                 links.map((link) => (
-                  <NavLink
-                    key={link.href}
-                    href={link.href}
-                    className='w-full'
-                  >
-                    <Button className='
-                    w-full
-                    
-                    text-primary
-                    bg-primary-foreground
-                    hover:bg-primary
-                    hover:text-primary-foreground
-
-                    dark:text-primary
-                    dark:bg-primary-foreground
-                    dark:hover:bg-primary
-                    dark:hover:text-primary-foreground
-
-                    border
-                    border-primary
-                    '>
-                      <li >
-                        {link.pathname}
-                      </li>
-                    </Button>
+                  <NavLink key={link.href} href={link.href}>
+                    <li className='flex gap-3 items-center'>
+                      {link.icon}
+                      {link.pathname}
+                    </li>
                   </NavLink>
-
                 ))
               }
             </ul>
-            {/* <SheetFooter>
-                <SheetClose asChild>
-                  <Button type="submit">Save changes</Button>
-                </SheetClose>
-              </SheetFooter> */}
           </SheetContent>
         </Sheet>
       </div>
-    </nav>
+    </nav >
   )
 }
 
-export default MobileLandingNavbar
+export default MobilePortalNavbar

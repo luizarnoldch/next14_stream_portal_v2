@@ -24,7 +24,7 @@ type LinkType = {
 const links: LinkType[] = [
   { href: '/', pathname: 'Home' },
   { href: '/about', pathname: 'About' },
-  { href: '/sign-up', pathname: 'Sign Up' },
+  { href: '/contact', pathname: 'Contact' },
   { href: '/sign-in', pathname: 'Sign In' },
 ];
 
@@ -34,7 +34,7 @@ type MobileLandingNavbarProps = {
 
 const MobileLandingNavbar = ({ className }: MobileLandingNavbarProps) => {
   return (
-    <nav className={cn("h-12 flex justify-center items-center bg-primary-foreground", className)}>
+    <nav className={cn("h-16 flex justify-center items-center bg-primary-foreground", className)}>
       <div className='max-w-3xl w-full flex justify-between items-center px-6'>
         <Sheet>
           <CompanyIcon className='size-8' />
@@ -55,26 +55,24 @@ const MobileLandingNavbar = ({ className }: MobileLandingNavbarProps) => {
               <ul className='mt-4 flex flex-col gap-4'>
                 {
                   links.map((link) => (
-                    <li key={link.href}>
-                      <NavLink
-                        href={link.href}
-                      >
+                    <NavLink
+                      key={link.href}
+                      href={link.href}
+                    >
+                      <li>
                         {link.pathname}
-                      </NavLink>
-                    </li>
+
+                      </li>
+                    </NavLink>
+
                   ))
                 }
               </ul>
-              {/* <SheetFooter>
-                <SheetClose asChild>
-                  <Button type="submit">Save changes</Button>
-                </SheetClose>
-              </SheetFooter> */}
             </SheetContent>
           </div>
         </Sheet>
-      </div>
-    </nav>
+      </div >
+    </nav >
   )
 }
 

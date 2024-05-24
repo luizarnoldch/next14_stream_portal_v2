@@ -5,6 +5,7 @@ import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@/components/ui/button"
+import CompanyIcon from "@/icons/Company"
 
 type Props = {}
 
@@ -53,6 +54,7 @@ const Home = (props: Props) => {
       <div className='size-16 bg-accent-foreground'>
         4-fr
       </div>
+      <CompanyIcon className='size-8 '/>
     </div>
   )
 }

@@ -36,19 +36,19 @@ const formInputFields: FormInputProps[] = [
 ]
 
 const SignUpForm = (props: Props) => {
-  return (
-    <form action="" className="flex flex-col gap-4">
-        {formInputFields.map((field) => (
-            <FormInput
-                key={field.id}
-                {...field}
-            />
-        ))}
-        <FormSubmit className="mt-4">
-            Sign Up
-        </FormSubmit>
-    </form>
-  )
+    return (
+        <form action='' className="flex flex-col gap-4">
+            {formInputFields.map((field) => (
+                <FormInput
+                    key={field.id}
+                    {...field}
+                />
+            ))}
+            <FormSubmit className="mt-4">
+                Sign Up
+            </FormSubmit>
+        </form>
+    )
 }
 
 export default SignUpForm

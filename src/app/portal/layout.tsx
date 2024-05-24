@@ -7,7 +7,7 @@ export default function PortalLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <section className="w-full min-h-screen">
+        <section className="w-full min-h-screen lg:flex">
             <MobilePortalNavbar className="lg:hidden" />
             <PortalSidebarNavbar className="hidden lg:block" />
             {children}
