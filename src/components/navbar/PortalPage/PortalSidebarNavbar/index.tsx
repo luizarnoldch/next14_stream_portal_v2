@@ -9,11 +9,10 @@ import SidebarBody from './SidebarBody';
 import SidebarFooter from './SidebarFooter';
 
 type SidebarToggleProps = {
-    children: React.ReactNode
     className?: string
 }
 
-const SidebarToggle = ({ className, children }: SidebarToggleProps) => {
+const SidebarToggle = ({ className }: SidebarToggleProps) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const toggleSidebar = () => {
         setIsOpen(!isOpen);
