@@ -26,7 +26,7 @@ const MobileCreateWorkButton = ({ open, setOpen }: MobileCreateWorkButtonProps) 
                 <DrawerHeader className="text-left">
                     <DrawerTitle>Create a Worker</DrawerTitle>
                     <DrawerDescription>
-                        Create a new Worker for you Company. Click save when you're done.
+                        Create a new Worker for you Company. Click save when you&apos;re done.
                     </DrawerDescription>
                 </DrawerHeader>
                 <WorkForm className="px-4" />
