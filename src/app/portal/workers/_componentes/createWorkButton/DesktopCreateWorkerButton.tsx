@@ -24,7 +24,7 @@ const DesktopCreateWorkButton = ({ open, setOpen }: DesktopCreateWorkButtonProps
                 <DialogHeader>
                     <DialogTitle>Create a Worker</DialogTitle>
                     <DialogDescription>
-                        Create a new Worker for you Company. Click save when you're done.
+                        Create a new Worker for you Company. Click save when you&apos;re done.
                     </DialogDescription>
                 </DialogHeader>
                 <WorkForm />
