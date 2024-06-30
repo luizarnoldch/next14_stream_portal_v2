@@ -8,9 +8,9 @@ export default function PortalLayout({
 }>) {
     return (
         <section className="w-full min-h-screen lg:flex">
-            <MobilePortalNavbar className="lg:hidden" />
+            <MobilePortalNavbar className="lg:hidden fixed w-full z-10" />
             <PortalSidebarNavbar className="hidden lg:block" />
-            {children}
+                {children}
         </section>
     );
 }

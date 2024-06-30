@@ -5,7 +5,7 @@ export default function AuthLayout({
 }) {
   return (
     <section className="min-h-screen px-6 py-8 flex justify-center items-center">
-      <aside className="rounded-3xl bg-primary-foreground shadow-lg">
+      <aside className="rounded-3xl w-screen">
         {children}
       </aside>
     </section>
