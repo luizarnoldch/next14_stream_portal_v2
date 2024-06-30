@@ -2,6 +2,7 @@
 
 import FormInput from "@/components/form/FormInput"
 import { FormSubmit } from "@/components/form/FormSubmitButton"
+import { useRouter } from 'next/navigation'
 
 type Props = {}
 
@@ -36,6 +37,11 @@ const formInputFields: FormInputProps[] = [
 ]
 
 const SignUpForm = (props: Props) => {
+    const router = useRouter()
+    const SignInAction = async () => {
+        router.push('/portal')
+      }
+    
     return (
         <form action='' className="flex flex-col gap-4">
             {formInputFields.map((field) => (
@@ -44,7 +50,7 @@ const SignUpForm = (props: Props) => {
                     {...field}
                 />
             ))}
-            <FormSubmit className="mt-4">
+            <FormSubmit className="mt-4" onClick={SignInAction}>
                 Sign Up
             </FormSubmit>
         </form>
