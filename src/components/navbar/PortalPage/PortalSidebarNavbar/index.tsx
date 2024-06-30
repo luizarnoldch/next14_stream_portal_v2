@@ -23,7 +23,7 @@ const SidebarToggle = ({ className }: SidebarToggleProps) => {
             <Button
                 variant={'outline'}
                 size={'icon'}
-                className={cn('rounded-full absolute top-5 -right-5 transition-transform duration-700', isOpen && 'rotate-180')}
+                className={cn('rounded-full absolute top-5 -right-5 transition-transform duration-700 rotate-180', isOpen && 'rotate-0')}
                 onClick={toggleSidebar}
             >
                 <ChevronLeft />
